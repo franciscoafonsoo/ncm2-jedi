@@ -116,8 +116,8 @@ class Source(Ncm2Source):
             item = dict(word=ctx['base'] + insert,
                         icase=1,
                         dup=1,
-                        menu=complete.description,
-                        info=docstring)
+                        menu="",
+                        info="")
 
             # Fix the user typed case
             if item['word'].lower() == complete.name.lower():
@@ -126,12 +126,12 @@ class Source(Ncm2Source):
             item = self.match_formalize(ctx, item)
 
             # snippet support
-            try:
-                if (complete.type == 'function' or complete.type == 'class'):
-                    self.render_snippet(item, complete, is_import)
-            except Exception as ex:
-                logger.exception(
-                    "exception parsing snippet for item: %s, complete: %s", item, complete)
+            # try:
+            #     if (complete.type == 'function' or complete.type == 'class'):
+            #         self.render_snippet(item, complete, is_import)
+            # except Exception as ex:
+            #     logger.exception(
+            #         "exception parsing snippet for item: %s, complete: %s", item, complete)
 
             matches.append(item)
 
