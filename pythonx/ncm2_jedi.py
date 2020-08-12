@@ -73,6 +73,7 @@ class Source(Ncm2Source):
         # else:
         #     vim_command('echo ""')
 
+        completions = script.completions()
         logger.info('completions %s', completions)
 
         matches = []
